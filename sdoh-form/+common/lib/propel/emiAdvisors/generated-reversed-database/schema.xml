@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="emi_advisors" defaultIdMethod="native" namespace="EmiAdvisors" defaultPhpNamingMethod="underscore">
+  <table name="form_reference" idMethod="native" phpName="FormReference" namespace="">
+    <column name="id" phpName="Id" type="BIGINT" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="form_id" phpName="FormId" type="BIGINT" required="true" defaultValue="0"/>
+    <column name="user_id" phpName="UserId" type="BIGINT" required="true" defaultValue="0"/>
+    <column name="section" phpName="Section" type="VARCHAR" size="32"/>
+    <column name="name" phpName="Name" type="LONGVARCHAR"/>
+    <column name="mime_type" phpName="MimeType" type="LONGVARCHAR"/>
+    <column name="reference" phpName="Reference" type="LONGVARCHAR"/>
+    <column name="valid" phpName="Valid" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+    <index name="form_id">
+      <index-column name="form_id"/>
+    </index>
+    <index name="user_id">
+      <index-column name="user_id"/>
+    </index>
+    <index name="valid">
+      <index-column name="valid"/>
+    </index>
+    <index name="section">
+      <index-column name="section"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="sdoh_domain" idMethod="native" phpName="SdohDomain" namespace="">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="128" required="true"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="64" required="true"/>
+    <column name="schedules" phpName="Schedules" type="LONGVARCHAR"/>
+    <column name="logs" phpName="Logs" type="LONGVARCHAR"/>
+    <column name="updated_ts" phpName="UpdatedTs" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="other_info" phpName="OtherInfo" type="LONGVARCHAR"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="sdoh_form" idMethod="native" phpName="SdohForm" namespace="">
+    <column name="id" phpName="Id" type="BIGINT" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="user_id" phpName="UserId" type="BIGINT" required="true" defaultValue="0"/>
+    <column name="domain" phpName="Domain" type="VARCHAR" size="32" required="true"/>
+    <column name="identifier" phpName="Identifier" type="VARCHAR" size="32"/>
+    <column name="form_version" phpName="FormVersion" type="INTEGER" required="true" defaultValue="1"/>
+    <column name="screening_data" phpName="ScreeningData" type="LONGVARCHAR"/>
+    <column name="diagnoses_data" phpName="DiagnosesData" type="LONGVARCHAR"/>
+    <column name="goals_data" phpName="GoalsData" type="LONGVARCHAR"/>
+    <column name="intervention_data" phpName="InterventionData" type="LONGVARCHAR"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="16"/>
+    <column name="last_admin_download_ts" phpName="LastAdminDownloadTs" type="TIMESTAMP"/>
+    <column name="log" phpName="Log" type="LONGVARCHAR"/>
+    <column name="created_ts" phpName="CreatedTs" type="TIMESTAMP"/>
+    <column name="updated_ts" phpName="UpdatedTs" type="TIMESTAMP" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="valid" phpName="Valid" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+    <index name="user_id">
+      <index-column name="user_id"/>
+    </index>
+    <index name="domain">
+      <index-column name="domain"/>
+    </index>
+    <index name="status">
+      <index-column name="status"/>
+    </index>
+    <index name="updated_ts">
+      <index-column name="updated_ts"/>
+    </index>
+    <index name="created_ts">
+      <index-column name="created_ts"/>
+    </index>
+    <index name="valid">
+      <index-column name="valid"/>
+    </index>
+    <index name="identifier">
+      <index-column name="identifier"/>
+    </index>
+    <index name="last_admin_download_ts">
+      <index-column name="last_admin_download_ts"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="user" idMethod="native" phpName="User" namespace="">
+    <column name="id" phpName="Id" type="BIGINT" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="256" required="true"/>
+    <column name="password" phpName="Password" type="LONGVARCHAR"/>
+    <column name="salt" phpName="Salt" type="VARCHAR" size="32"/>
+    <column name="first_name" phpName="FirstName" type="VARCHAR" size="128"/>
+    <column name="last_name" phpName="LastName" type="VARCHAR" size="128"/>
+    <column name="organization" phpName="Organization" type="LONGVARCHAR"/>
+    <column name="title" phpName="Title" type="LONGVARCHAR"/>
+    <column name="role" phpName="Role" type="VARCHAR" size="32" defaultValue="User"/>
+    <column name="token" phpName="Token" type="VARCHAR" size="64"/>
+    <column name="token_expire_ts" phpName="TokenExpireTs" type="TIMESTAMP"/>
+    <column name="created_ts" phpName="CreatedTs" type="TIMESTAMP"/>
+    <column name="updated_ts" phpName="UpdatedTs" type="TIMESTAMP" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="active" phpName="Active" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+    <column name="valid" phpName="Valid" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+    <index name="email">
+      <index-column name="email"/>
+    </index>
+    <index name="token">
+      <index-column name="token"/>
+    </index>
+    <index name="created_ts">
+      <index-column name="created_ts"/>
+    </index>
+    <index name="updated_ts">
+      <index-column name="updated_ts"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>
