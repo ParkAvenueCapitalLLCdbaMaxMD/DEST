@@ -6,7 +6,7 @@ import org.codehaus.enunciate.json.JsonRootType;
 /**
  * @date: 3/25/20
  * @author: Yan Wang <ywang@max.md>
- * @copy: (C) Copyright 2020 MaxMD Corporation, All Rights Reserved.
+ * @copy: (C) Copyright 2020 Park Avenue Capital LLC dba MaxMD, All Rights Reserved.
  *
  *  Redistribution and use in source and binary forms, with or without  modification,
  *  are permitted provided that the following conditions  are met:

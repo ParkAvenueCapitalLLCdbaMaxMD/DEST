@@ -3,7 +3,7 @@
  * @Desc:
  * @Auth: Yan Wang <ywang@max.md>
  * @Date: 5/31/19
- * @Copy: (c) Copyright 2019 MaxMD
+ * @Copy: (c) Copyright 2019 Park Avenue Capital LLC dba MaxMD, All Rights Reserved.
  *
  *  Redistribution and use in source and binary forms, with or without  modification,
  *  are permitted provided that the following conditions  are met:
